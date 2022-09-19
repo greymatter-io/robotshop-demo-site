@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: rs_mysql
   labels:
-    service: mysql
+    service: rs_mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: mysql
+      service: rs_mysql
   template:
     metadata:
       labels:
-        service: mysql
+        service: rs_mysql
+      annotations:
+        greymatter.io/inject-sidecar-to: "3306"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop
