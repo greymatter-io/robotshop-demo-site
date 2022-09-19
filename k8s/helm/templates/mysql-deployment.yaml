@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rs_mysql
+  name: rs-mysql
   labels:
-    service: rs_mysql
+    service: rs-mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: rs_mysql
+      service: rs-mysql
   template:
     metadata:
       labels:
-        service: rs_mysql
+        service: rs-mysql
       annotations:
         greymatter.io/inject-sidecar-to: "3306"
     spec:
