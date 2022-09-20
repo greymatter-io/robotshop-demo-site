@@ -13,6 +13,8 @@ spec:
     metadata:
       labels:
         service: mongodb
+      annotations:
+        greymatter.io/inject-sidecar-to: "27017"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop
