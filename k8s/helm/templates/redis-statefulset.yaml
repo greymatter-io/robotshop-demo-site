@@ -2,18 +2,20 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
-    service: redis
+    service: rs-redis
   name: redis
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: redis
+      service: rs-redis
   serviceName: redis
   template:
     metadata:
       labels:
-        service: redis
+        service: rs-redis
+    annotations:
+        greymatter.io/inject-sidecar-to: "6379"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop
