@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ratings
+  name: rs-ratings
   labels:
-    service: ratings
+    service: rs-ratings
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: ratings
+      service: rs-ratings
   template:
     metadata:
       labels:
-        service: ratings
+        service: rs-ratings
+      annotations:
+        greymatter.io/inject-sidecar-to: "80"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop
