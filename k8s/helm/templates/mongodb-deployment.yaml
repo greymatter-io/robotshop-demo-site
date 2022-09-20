@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: rs-mongodb
   labels:
-    service: rs-mongodb
+    service: mongodb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: rs-mongodb
+      service: mongodb
   template:
     metadata:
       labels:
-        service: rs-mongodb
+        service: mongodb
       annotations:
         greymatter.io/inject-sidecar-to: "27017"
     spec:

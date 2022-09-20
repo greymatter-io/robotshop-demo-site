@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: rs-mysql
   labels:
-    service: rs-mysql
+    service: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: rs-mysql
+      service: mysql
   template:
     metadata:
       labels:
-        service: rs-mysql
+        service: mysql
       annotations:
         greymatter.io/inject-sidecar-to: "3306"
     spec:

@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   labels:
-    service: rs-redis
-  name: redis
+    service: redis
+  name: rs-redis
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: rs-redis
+      service: redis
   serviceName: redis
   template:
     metadata:
       labels:
-        service: rs-redis
+        service: redis
       annotations:
         greymatter.io/inject-sidecar-to: "6379"
     spec:

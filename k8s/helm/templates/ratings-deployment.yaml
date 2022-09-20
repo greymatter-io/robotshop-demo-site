@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: rs-ratings
   labels:
-    service: rs-ratings
+    service: ratings
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: rs-ratings
+      service: ratings
   template:
     metadata:
       labels:
-        service: rs-ratings
+        service: ratings
       annotations:
         greymatter.io/inject-sidecar-to: "80"
     spec:
