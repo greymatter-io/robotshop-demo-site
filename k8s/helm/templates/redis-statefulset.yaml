@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         service: rs-redis
-    annotations:
+      annotations:
         greymatter.io/inject-sidecar-to: "6379"
     spec:
       {{ if .Values.psp.enabled }}
