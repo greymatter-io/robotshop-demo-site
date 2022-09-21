@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payment
+  name: rs-payment
   labels:
     service: payment
+  annotations:
+    greymatter.io/inject-sidecar-to: "8080"
     stage: prod
 spec:
   replicas: 1
