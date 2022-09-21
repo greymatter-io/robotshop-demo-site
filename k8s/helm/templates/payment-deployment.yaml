@@ -4,8 +4,6 @@ metadata:
   name: rs-payment
   labels:
     service: payment
-  annotations:
-    greymatter.io/inject-sidecar-to: "8080"
     stage: prod
 spec:
   replicas: 1
@@ -18,6 +16,8 @@ spec:
       labels:
         service: payment
         stage: prod
+      annotations:
+        greymatter.io/inject-sidecar-to: "8080"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop
