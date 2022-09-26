@@ -39,4 +39,13 @@ spec:
           requests:
             cpu: 100m
             memory: 50Mi
+        volumeMounts:
+            - mountPath: /etc/nginx/conf.d/default.conf.template
+              name: web-nginx
+              subPath: default.conf.template
       restartPolicy: Always
+      volumes:
+        - name: web-nginx
+          configMap:
+            defaultMode: 420
+            name: web-nginx
