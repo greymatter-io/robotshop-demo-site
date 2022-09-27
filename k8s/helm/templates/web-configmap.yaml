@@ -70,10 +70,6 @@ data:
             proxy_pass http://${SHIPPING_HOST}:8080/;
         }
 
-        location /api/payment/ {
-            proxy_pass http://${PAYMENT_HOST}:8080/;
-        }
-
         location /api/ratings/ {
             proxy_pass http://${RATINGS_HOST}:80/;
         }
