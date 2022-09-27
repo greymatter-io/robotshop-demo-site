@@ -25,6 +25,11 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
         - containerPort: 8080
+        env:
+          - name: CART_ENDPOINT
+            value: "127.0.0.1:10909"
+          - name: DB_HOST
+            value: "127.0.0.1"
         # it's Java it needs lots of memory
         resources:
           limits:
