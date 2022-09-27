@@ -17,7 +17,7 @@ spec:
         service: payment
         stage: prod
       annotations:
-        greymatter.io/inject-sidecar-to: "8080"
+        greymatter.io/inject-sidecar-to: "9080"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop
@@ -32,12 +32,20 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: status.hostIP
+          - name: SHOP_PAYMENT_PORT
+            value: "9080"
+          - name: CART_HOST
+            value: "127.0.0.1"
+          - name: USER_HOST
+            value: "127.0.0.1"
+          - name: AMQP_HOST
+            value: "127.0.0.1"
           {{- if .Values.payment.gateway }}
           - name: PAYMENT_GATEWAY
             value: {{ .Values.payment.gateway }}
           {{- end }}
         ports:
-        - containerPort: 8080
+        - containerPort: 9080
         resources:
           limits:
             cpu: 200m
@@ -45,4 +53,13 @@ spec:
           requests:
             cpu: 100m
             memory: 50Mi
+        volumeMounts:
+            - mountPath: /app/payment.ini
+              name: payment-uwsgi
+              subPath: payment.ini
       restartPolicy: Always
+      volumes:
+        - name: payment-uwsgi
+          configMap:
+            defaultMode: 420
+            name: payment-uwsgi
