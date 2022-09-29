@@ -23,6 +23,11 @@ spec:
       - name: ratings
         image: {{ .Values.image.repo }}/rs-ratings:{{ .Values.image.version }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: CATALOGUE_URL
+          value: "http://127.0.0.1:10909/"
+        - name: PDO_URL
+          value: "mysql:host=127.0.0.1;dbname=ratings;charset=utf8mb4"
         ports:
         - containerPort: 80
         resources:
