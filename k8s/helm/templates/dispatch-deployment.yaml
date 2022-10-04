@@ -29,6 +29,8 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: status.hostIP
+          - name: AMQP_HOST
+            value: "127.0.0.1"
         resources:
           limits:
             cpu: 200m
