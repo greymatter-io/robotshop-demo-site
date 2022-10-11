@@ -6,6 +6,6 @@ spec:
   ports:
   - name: http
     port: 8080
-    targetPort: 8080
+    targetPort: 8090
   selector:
     service: cart

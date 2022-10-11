@@ -31,6 +31,10 @@ spec:
                 fieldPath: status.hostIP
           - name: REDIS_HOST 
             value: "127.0.0.1"
+          - name: CART_SERVER_PORT
+            value: "8090"
+          - name: CATALOGUE_HOST
+            value: "127.0.0.1"
         ports:
         - containerPort: 8080
         resources:
