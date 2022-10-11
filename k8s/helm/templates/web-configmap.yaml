@@ -58,10 +58,6 @@ data:
         #    deny  all;
         #}
 
-        location /api/shipping/ {
-            proxy_pass http://${SHIPPING_HOST}:8080/;
-        }
-
         location /nginx_status {
             stub_status on;
             access_log off;
