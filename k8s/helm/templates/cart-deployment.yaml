@@ -4,6 +4,8 @@ metadata:
   name: rs-cart
   labels:
     service: cart
+  annotations:
+    greymatter.io/inject-sidecar-to: "8080"    
 spec:
   replicas: 1
   selector:
@@ -13,8 +15,6 @@ spec:
     metadata:
       labels:
         service: cart
-      annotations:
-        greymatter.io/inject-sidecar-to: "8080"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop

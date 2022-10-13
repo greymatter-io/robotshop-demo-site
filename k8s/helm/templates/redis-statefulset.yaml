@@ -4,6 +4,8 @@ metadata:
   labels:
     service: redis
   name: rs-redis
+  annotations:
+    greymatter.io/inject-sidecar-to: "6379"
 spec:
   replicas: 1
   selector:
@@ -14,8 +16,6 @@ spec:
     metadata:
       labels:
         service: redis
-      annotations:
-        greymatter.io/inject-sidecar-to: "6379"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop

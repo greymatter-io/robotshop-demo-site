@@ -4,6 +4,8 @@ metadata:
   name: rs-ratings
   labels:
     service: ratings
+  annotations:
+    greymatter.io/inject-sidecar-to: "80"
 spec:
   replicas: 1
   selector:
@@ -13,8 +15,6 @@ spec:
     metadata:
       labels:
         service: ratings
-      annotations:
-        greymatter.io/inject-sidecar-to: "80"
     spec:
       {{ if .Values.psp.enabled }}
       serviceAccountName: robot-shop
