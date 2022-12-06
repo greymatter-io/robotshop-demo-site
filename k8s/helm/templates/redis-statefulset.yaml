@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   labels:
     service: redis
-  name: rs-redis
+  name: redis
   annotations:
     greymatter.io/inject-sidecar-to: "6379"
 spec:

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rs-ratings
+  name: ratings
   labels:
     service: ratings
   annotations:
