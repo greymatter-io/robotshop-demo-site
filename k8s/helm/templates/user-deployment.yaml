@@ -31,7 +31,7 @@ spec:
                 fieldPath: status.hostIP
           - name: MONGO_URL
             value: "mongodb://127.0.0.1:27017/user"
-          - name: REDIS_URL
+          - name: REDIS_HOST
             value: "127.0.0.1"
         ports:
         - containerPort: 8080
