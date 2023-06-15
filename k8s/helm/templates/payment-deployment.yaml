@@ -48,10 +48,11 @@ spec:
         - containerPort: 9080
         resources:
           limits:
-            cpu: 200m
+          limits:
+            cpu: 100m
             memory: 100Mi
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 50Mi
         volumeMounts:
             - mountPath: /app/payment.ini

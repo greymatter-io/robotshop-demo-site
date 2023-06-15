@@ -31,10 +31,10 @@ spec:
             mountPath: /mnt/redis
         resources:
           limits:
-            cpu: 200m
+            cpu: 100m
             memory: 100Mi
           requests:
-            cpu: 100m
+            cpu: 10m
             memory: 50Mi
       restartPolicy: Always
   volumeClaimTemplates:
